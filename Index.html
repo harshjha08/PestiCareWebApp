@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PestiCare-Smart Farming, Safe Crops</title>
+    <link rel="stylesheet" href="style.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+</head>
+<body>
+         <section id="Home">
+
+            <nav>
+            <div class="tag-logo">
+                <p id="p-logo"><i class="fa-solid fa-leaf fa-2x" alt="crewai logo" width="60" height="60" color="Green"></i>PestiCare</p>
+            </div>
+            <div class="options-nav"></div>
+           <a href="#Home" class="active_tab" ><ul><i class="fa-solid fa-house"></i></ul></a>
+             <a class="anchor-sub" href="#pesticide-types"><ul>Pesticides Type</ul></a>
+             <a class="anchor-sub" href="#crop-guide"><ul>Crop Guide</ul></a>
+             <a class="anchor-sub" href="#Safety-tips"><ul>Safety Tips</ul></a>
+             <a class="anchor-sub" href="#About"><ul>About</ul></a>
+             <a  class="anchor-sub"href="#contact"><ul>Contact</ul></a>
+              <a  class="anchor-sub" onclick="pestMapOpen()"  href="#pesticare-map"><ul>PestMap</ul></a>
+             <a  class="anchor-sub" onclick="openWeather()" href="#weather"><ul>Check Weather</ul></a>
+             <p id="log-btn" onclick="showLoginSignup()"><i class="fa-solid fa-right-to-bracket"></i></p>
+             
+                 </div>
+        </nav>
+        <div class="main-body-home">
+          <!-- hero section Head -->
+<div class="container-box">
+    <button id="btn-main-home">24/7 Guidance</button>
+  <p>Pesti<span>Care</span></p>
+  <!-- <div class="btn-move"> -->
+  <button id="btn-twice-hero" onclick="openPcModal()">Find Pesticides</button>
+  <!-- </div> -->
+</div>
+<div class="tagline-hero">
+  <h5>Smart Farming, Safe Soil</h5>
+</div>
+ <div class="second-div-hero">
+          <p>A platform which helps farmers and citizens understand how excessive use of fertilizers and pesticides damages soil health — and how sustainable practices can bring it back to life.”
+This project aims to spread awareness and introduce AI-based solutions to monitor and control pesticide and fertilizer usage effectively</p>
+        </div>
+        </div>
+    </section>
+
+<!-- ==== PESTICIDE TYPE SECTION ==== -->
+    <section class="sections" id="pesticide-types">
+  <div class="pesticide-container">
+    <h2 class="pesticide-heading">Types of Pesticides</h2>
+    <p class="pesticide-intro">
+      Pesticides are classified based on the type of pest they control. Below are the major types:
+    </p>
+
+    <div class="pesticide-cards">
+      <div class="pesticide-card">
+         <span class="pesticide-icon">🐞</span>
+        <h3>1. Insecticides</h3>
+        <p>Used to control insects like mosquitoes, flies, and beetles that damage crops or spread disease.</p>
+      </div>
+
+      <div class="pesticide-card">
+         <span class="pesticide-icon">🌿</span>
+        <h3>2. Herbicides</h3>
+        <p>Used to kill unwanted plants or weeds that compete with crops for sunlight, water, and nutrients.</p>
+      </div>
+
+      <div class="pesticide-card">
+          <span class="pesticide-icon">🍄</span>
+        <h3>3. Fungicides</h3>
+        <p>Used to prevent or eliminate fungal infections that cause crop diseases and spoil harvests.</p>
+      </div>
+
+      <div class="pesticide-card">
+          <span class="pesticide-icon">🐭</span>
+        <h3>4. Rodenticides</h3>
+        <p>Used to kill or repel rats, mice, and other rodents that damage stored grains and crops.</p>
+      </div>
+
+      <div class="pesticide-card">
+          <span class="pesticide-icon">🦠</span>
+        <h3>5. Bactericides</h3>
+        <p>Used to destroy or inhibit bacteria that can infect plants and reduce crop yield.</p>
+      </div>
+      <!-- 6 -->
+<div class="pesticide-card">
+   <span class="pesticide-icon">🪱</span>
+  <h3>6. Nematicides</h3>
+  <p>Used to control nematodes — microscopic worms that attack plant roots and reduce crop growth.</p>
+</div>
+
+<!-- 7 -->
+<div class="pesticide-card">
+  <span class="pesticide-icon">🐚</span>
+  <h3>7. Molluscicides</h3>
+  <p>Used to kill snails and slugs, which often feed on leaves and stems of crops in moist areas.</p>
+</div>
+
+<!-- 8 -->
+<div class="pesticide-card">
+   <span class="pesticide-icon">🕷</span>
+  <h3>8. Acaricides / Miticides</h3>
+  <p>Used to control mites and ticks that suck sap from plants or transmit diseases to animals.</p>
+</div>
+
+<!-- 9 -->
+<div class="pesticide-card">
+   <span class="pesticide-icon">🌊</span>
+  <h3>9. Algicides</h3>
+  <p>Used to prevent or control algae growth in water bodies and irrigation systems.</p>
+</div>
+
+<!-- 10 -->
+<div class="pesticide-card">
+    <span class="pesticide-icon">🐜</span>
+  <h3>10. Termiticides</h3>
+  <p>Used to kill termites that damage wooden structures and harm crop roots underground.</p>
+</div>
+    </div>
+  </div>
+</section>
+
+     <section class="sections" id="crop-guide">
+     
+    <!-- ==== CROP GUIDE SECTION ==== -->
+  <div class="cropguide-container">
+    <h2 class="cropguide-heading">Crop Guide</h2>
+    <p class="cropguide-intro">
+      Learn about major crops, their growing conditions, and tips for healthy cultivation.
+    </p>
+
+    <div class="cropguide-cards">
+      <!-- Card 1 -->
+      <div class="cropguide-card" onclick="openModalWheat()">
+        <span class="cropguide-icon">🌾</span>
+        <h3>Wheat</h3>
+        <p>Thrives in well-drained loamy soil; requires moderate water and sunny climate.</p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="cropguide-card" onclick="openModalMaize()">
+        <span class="cropguide-icon">🌽</span>
+        <h3>Maize</h3>
+        <p>Grows best in fertile, well-drained soil; needs full sunlight and moderate rainfall.</p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="cropguide-card" onclick="openModalTomato()">
+        <span class="cropguide-icon">🍅</span>
+        <h3>Tomato</h3>
+        <p>Prefers loamy soil with good organic matter; requires regular watering and sunlight.</p>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="cropguide-card" onclick="openModalBroccoli()">
+        <span class="cropguide-icon">🥦</span>
+        <h3>Broccoli</h3>
+        <p>Grows in cool climates; soil should be rich in nutrients with consistent moisture.</p>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="cropguide-card" onclick="openModalMango()">
+        <span class="cropguide-icon">🥭</span>
+        <h3>Mango</h3>
+        <p>Needs tropical/subtropical climate; well-drained sandy loam is ideal for growth.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- section3 -->
+
+     <section class="sections" id="Safety-tips">
+  <div class="safety-container">
+    <h2 class="safety-heading">Safety Tips for Pesticide Handling</h2>
+    <p class="safety-intro">
+      Follow these essential safety measures to protect yourself and the environment.
+    </p>
+
+    <div class="safety-accordion">
+
+      <div class="safety-item">
+        <button class="safety-btn">🧤 Wear Protective Gloves</button>
+        <div class="safety-content">
+          <p>Always wear gloves to prevent direct contact with pesticides.</p>
+        </div>
+      </div>
+
+      <div class="safety-item">
+        <button class="safety-btn">😷 Use Mask / Respirator</button>
+        <div class="safety-content">
+          <p>Protect your respiratory system from harmful fumes and dust.</p>
+        </div>
+      </div>
+
+      <div class="safety-item">
+        <button class="safety-btn">🥽 Wear Goggles</button>
+        <div class="safety-content">
+          <p>Prevent eye irritation or injury from pesticide splashes.</p>
+        </div>
+      </div>
+
+      <div class="safety-item">
+        <button class="safety-btn">🚫 Avoid Eating / Drinking</button>
+        <div class="safety-content">
+          <p>Do not eat, drink, or smoke while handling pesticides to avoid ingestion.</p>
+        </div>
+      </div>
+
+      <div class="safety-item">
+        <button class="safety-btn">🧴 Wash Hands & Clothes</button>
+        <div class="safety-content">
+          <p>Clean yourself and your clothes thoroughly after using pesticides.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+   <!-- section 4 about page -->
+     <section class="sections" id="About">
+    
+  <div class="about-container">
+    
+    <!-- Section Heading -->
+    <h2 class="about-heading">About This Project</h2>
+    <p class="about-intro">
+      This project is designed to educate farmers and students about pesticides, fertilizers, crop management, and safe agricultural practices in an interactive way.
+    </p>
+
+    <!-- Project Overview Cards -->
+    <div class="about-cards">
+      <div class="about-card">
+        <span class="about-icon">💻</span>
+        <h3>Project Purpose</h3>
+        <p>Provide a simple, visually appealing interface to understand crops, pesticides, fertilizers, and safety guidelines.</p>
+      </div>
+
+      <div class="about-card">
+        <span class="about-icon">⚙</span>
+        <h3>Features</h3>
+        <p>Interactive sections, scroll animations, hover effects, responsive layout, and educational content.</p>
+      </div>
+
+      <div class="about-card">
+        <span class="about-icon">🌱</span>
+        <h3>Target Audience</h3>
+        <p>Students, agriculture enthusiasts, and farmers seeking practical guidance and awareness.</p>
+      </div>
+    </div>
+
+    <!-- Pesticides Info Section -->
+    <div class="about-detail">
+      <h3>Pesticides</h3>
+      <p>Pesticides are chemicals used to control pests in agriculture. While they improve crop yield, excessive use can harm humans, animals, and the environment. This project explains the main types of pesticides, safe handling, and preventive measures to minimize risks.</p>
+    </div>
+
+    <!-- Fertilizers Info Section -->
+    <div class="about-detail">
+      <h3>Fertilizers</h3>
+      <p>Fertilizers provide essential nutrients for plants. Overuse can lead to soil degradation, water pollution, and imbalance in crop health. This project provides guidance on correct usage, eco-friendly alternatives, and methods to reduce negative impact.</p>
+    </div>
+
+    <!-- Prevention / Safety Section -->
+    <div class="about-detail">
+      <h3>How to Reduce Harm</h3>
+      <ul class="about-list">
+        <li>Use pesticides and fertilizers only as recommended.</li>
+        <li>Follow safety guidelines and wear protective gear.</li>
+        <li>Prefer organic or bio-pesticides where possible.</li>
+        <li>Maintain crop rotation and natural pest control methods.</li>
+        <li>Proper disposal of chemical containers to prevent contamination.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+    
+     <section class="sections" id="contact">
+     
+      
+  <div class="contact-container">
+    <h2 class="contact-heading">Get in Touch</h2>
+    <p class="contact-intro">
+      Have questions or suggestions? Feel free to contact us anytime.
+    </p>
+
+    <form action="https://formspree.io/f/yourFormID" method="POST" class="contact-form">
+      <div class="contact-field">
+        <label for="contact-name">Name</label>
+        <input type="text" id="contact-name" placeholder="Your Name" required>
+      </div>
+
+      <div class="contact-field">
+        <label for="contact-email">Email</label>
+        <input type="email" id="contact-email" placeholder="Your Email" required>
+      </div>
+
+      <div class="contact-field">
+        <label for="contact-message">Message</label>
+        <textarea id="contact-message" placeholder="Your Message" rows="5" minlength="10" required></textarea>
+      </div>
+
+      <button type="submit" class="contact-btn">Send Message</button>
+    </form>
+  </div>
+</section>
+<!-- maapppssss -->
+<section id="pesticare-map">
+  <span class="close-btn" onclick="closeMap()">&times;</span>
+  <h2>🌾 Pesticare Crop & Pesticide Map</h2>
+  <div id="map-container"></div>
+
+  <!-- Leaflet CSS -->
+   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" /> 
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script> 
+  <!-- Our JS -->
+ <script src="script.js"></script>
+</section>
+<div class="weather-card" id="weather-box" >
+  <span class="close-btn" onclick="closeWeather()">&times;</span>
+    <h2>🌤️ Pesticare Weather</h2>
+    <div class="weather-input">
+        <input type="text" id="city-input" placeholder="Enter city name">
+        <button id="check-btn">Check</button>
+    </div>
+    <div class="weather-info" id="weather-result">
+        <!-- Weather details will appear here -->
+    </div>
+</div>
+
+<!-- === Find Pesticides Modal === -->
+<div class="pc-modal-wrapper" id="pc-modal-wrapper">
+  <div class="pc-modal-content">
+    <span class="pc-close-btn" onclick="closePcModal()" id="pc-close-btn">&times;</span>
+    <h2>Find Pesticides</h2>
+
+    <!-- Search -->
+    <div class="pc-search-box">
+      <input type="text" id="pc-search-input" placeholder="Search pesticide or fertilizer">
+      <button id="pc-search-btn" onclick="showPesticides(list)" >Search</button>
+    </div>
+
+    <!-- Results -->
+    <div class="pc-cards-container" id="pc-cards-container">
+      <div class="pc-card" data-name="Neem Oil">
+        <h3>Neem Oil 🌿</h3>
+        <p>Organic insecticide effective against aphids, mites, and whiteflies.</p>
+        <p><a href="https://www.amazon.in/s?k=neem+oil+pesticide" target="_blank">Buy Online</a></p>
+      </div>
+
+      <div class="pc-card" data-name="Glyphosate">
+        <h3>Glyphosate 🌾</h3>
+        <p>Non-selective herbicide used to kill unwanted weeds and grasses.</p>
+        <p><a href="https://www.amazon.in/s?k=glyphosate+herbicide" target="_blank">Buy Online</a></p>
+      </div>
+
+      <div class="pc-card" data-name="Imidacloprid">
+        <h3>Imidacloprid 🐛</h3>
+        <p>Systemic insecticide used for controlling sucking pests in crops.</p>
+        <p><a href="https://www.amazon.in/s?k=Imidacloprid+pesticide" target="_blank">Buy Online</a></p>
+      </div>
+
+      <div class="pc-card" data-name="Chlorpyrifos">
+        <h3>Chlorpyrifos 🪲</h3>
+        <p>Used to control soil insects and termites in paddy and sugarcane.</p>
+        <p><a href="https://www.amazon.in/s?k=chlorpyrifos" target="_blank">Buy Online</a></p>
+      </div>
+
+      <div class="pc-card" data-name="Carbendazim">
+        <h3>Carbendazim 🍄</h3> 
+        <p>Fungicide used to control fungal diseases in fruits and vegetables.</p>
+        <p><a href="https://www.amazon.in/s?k=carbendazim" target="_blank">Buy Online</a></p>
+      </div>
+
+      <div class="pc-card" data-name="Copper Sulphate">
+        <h3>Copper Sulphate 🧪</h3>
+        <p>Traditional fungicide and bactericide used in Bordeaux mixture.</p>
+        <p><a href="https://www.amazon.in/s?k=copper+sulphate" target="_blank">Buy Online</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Button to open modal
+<button id="pc-open-btn">Find Pesticides</button> -->
+    
+<!-- </div> -->
+  <!-- Chatbot icon -->
+  <p Ask Avni ><div id="chatbot-icon" onclick="toggleChatbot()">💬</div></p>
+
+  <!-- Chatbot box -->
+  <div id="chatbot">
+    <div class="chat-header">
+      <h3>Avni Here</h3>
+      <span class="close-btn-bot" onclick="toggleChatbot()">✖</span>
+    </div>
+
+    <div id="chatbox">
+      <!-- Chat messages appear here -->
+    </div>
+
+    <div class="input-area">
+      <input type="text" id="userInput" placeholder="Type your message..." onkeydown="handleKey(event)">
+      <button onclick="sendMessage()">➤</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  
+
+
+</body>
+
+<!-- popup boxes for crop details -->
+<!-- 🌾 WHEAT MODAL -->
+<div id="wheatModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModalWheat()">&times;</span>
+    <h2>🌾 Wheat Crop Guide</h2>
+    <p><b>Soil & Climate:</b> Fertile loamy soil, cool & dry weather.</p>
+    <p><b>Pesticides:</b> Use Chlorpyrifos 20% EC during early pest attack, avoid repeated spraying.</p>
+    <p><b>Fertilizers:</b> Urea (N), DAP (P), MOP (K) — use in 3 splits as per growth stage.</p>
+    <p><b>Alternatives:</b> Neem-based bio-pesticides or Trichoderma culture can reduce chemical use.</p>
+    <p><b>Tips:</b> Avoid over-irrigation; rotate crops with pulses to maintain soil fertility.</p>
+  </div>
+</div>
+
+<!-- 🌽 MAIZE MODAL -->
+<div id="maizeModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModalMaize()">&times;</span>
+    <h2>🌽 Maize Crop Guide</h2>
+    <p><b>Soil:</b> Well-drained loamy soil; warm conditions.</p>
+    <p><b>Pesticides:</b> Spinosad 45% SC for fall armyworm; avoid spraying during flowering.</p>
+    <p><b>Fertilizers:</b> NPK 120:60:40 kg/ha; apply in 3 doses.</p>
+    <p><b>Alternatives:</b> Use cow dung manure & vermicompost.</p>
+    <p><b>Tips:</b> Avoid waterlogging; rotate maize with legumes to enrich nitrogen.</p>
+  </div>
+</div>
+
+<!-- 🍅 TOMATO MODAL -->
+<div id="tomatoModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModalTomato()">&times;</span>
+    <h2>🍅 Tomato Crop Guide</h2>
+    <p><b>Soil:</b> Sandy loam, rich in organic matter.</p>
+    <p><b>Pesticides:</b> Imidacloprid 17.8% SL for aphids; avoid overuse.</p>
+    <p><b>Fertilizers:</b> FYM + NPK 100:50:50; mix compost to maintain moisture.</p>
+    <p><b>Alternatives:</b> Neem extract spray; yellow sticky traps.</p>
+    <p><b>Tips:</b> Avoid overhead irrigation; pick ripe fruits regularly.</p>
+  </div>
+</div>
+
+<!-- 🥦 BROCCOLI MODAL -->
+<div id="broccoliModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModalBroccoli()">&times;</span>
+    <h2>🥦 Broccoli Crop Guide</h2>
+    <p><b>Soil:</b> Well-drained loamy soil rich in organic matter, pH 6–7 ideal.</p>
+    <p><b>Climate:</b> Cool and moist conditions preferred; avoid high heat.</p>
+    <p><b>Pesticides:</b> Use Cypermethrin 25% EC or neem oil for cabbage worms — apply only when infestation visible.</p>
+    <p><b>Fertilizers:</b> Apply NPK 100:50:50 kg/ha; include compost or cow dung manure for better head growth.</p>
+    <p><b>Alternatives:</b> Neem-based sprays and biological control (Bacillus thuringiensis) are eco-safe options.</p>
+    <p><b>Tips:</b> Avoid overhead irrigation to prevent fungal disease; rotate with legumes to maintain soil fertility.</p>
+  </div>
+</div>
+
+<!-- 🥭 MANGO MODAL -->
+<div id="mangoModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModalMango()">&times;</span>
+    <h2>🥭 Mango Crop Guide</h2>
+    <p><b>Soil:</b> Deep loam with good drainage.</p>
+    <p><b>Pesticides:</b> Malathion 50% EC for hopper control; spray during early flowering only.</p>
+    <p><b>Fertilizers:</b> FYM + Potassium during flowering.</p>
+    <p><b>Alternatives:</b> Organic manure & neem cake use encouraged.</p>
+    <p><b>Tips:</b> Avoid pruning in rainy season; ensure sunlight exposure.</p>
+  </div>
+</div>
+
+<!--Login and signup form-->
+        <div class="main-container" id="loginform">
+         <div class="innerContainer1 ">
+            <div class="input-box">
+                <br>
+                <h1 >Register</h1>
+                <br>
+                <div class="input-items">
+                    <input type="text" id="fullName"  placeholder="Name" required>
+                    <br>
+                    <input type="email" id="email" placeholder="Email" required>
+                    <br>
+                      
+                      
+                      <input type="password" id="Cpass" placeholder="Password" required>
+                      <br>
+                       <div class="btns">
+                    <button type="button" id="main-btn" onclick="createAc()" >Create</button>
+                    <button onclick="showLogin()" type="button" id="btn">Login</button>
+                </div>
+  <p>---------------------------------OR-----------------------------------</p> 
+  <br>
+  <div class="icon-box">
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-x-twitter"></i>
+                <i class="fa-brands fa-linkedin"></i>
+                <i class="fa-brands fa-google"></i>
+                </div>
+                </div>
+                  <button onclick="closeloginForm()" id="cls-btn-form">Close</button>
+            </div>
+        </div> 
+     <div class="innerContainer2 active ">
+        <div class="input-box">
+            <br>
+            <h1> Login </h1>
+            <br>
+            <div class="input-items">
+                
+                 
+                <input type="username" id="username" spellcheck="false" placeholder="Username" required>
+                <br>
+                
+                  
+                <input type="password" id="pass"  placeholder="Password" required>
+                <br>
+                <div class="forgot">
+                <p>Forgot Password?</p> <p><a href="#"> Reset password</a></p>
+                </div>
+                <div class="btns">
+                    <button type="submit" onclick="successLogin()" id="main-btn">Log In</button>
+                    <button onclick=showRegister() type="Register" id="btn">Sign Up</button>
+                </div>
+                <p>---------------------------------OR-----------------------------------</p> 
+                
+                <br>
+                 <div class="icon-box">
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-x-twitter"></i>
+                <i class="fa-brands fa-linkedin"></i>
+                <i class="fa-brands fa-google"></i>
+                </div>
+            </div>
+            <button onclick="closeloginForm()" id="cls-btn-form">Close</button>
+        </div> 
+        </div>
+</html>
