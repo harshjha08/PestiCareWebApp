@@ -379,44 +379,44 @@ document.getElementById("pesticare-map").style.display = 'none';
 
 // for maps
 // 1️⃣ Map Initialization
-// const map = L.map('map-container').setView([25.6, 85.1], 6);
+const map = L.map('map-container').setView([25.6, 85.1], 6);
 
-// // 2️⃣ Tile Layer
-// L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-//     maxZoom: 18,
-//     attribution: '&copy; OpenStreetMap contributors'
-// }).addTo(map);
+// 2️⃣ Tile Layer
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 18,
+    attribution: '&copy; OpenStreetMap contributors'
+}).addTo(map);
 
-// // 3️⃣ Sample Crop & Pesticide Data
-// const regionData = {
-//     Bihar: { crops: ["Rice", "Maize"], pesticides: ["Imidacloprid", "Chlorpyrifos"] },
-//     Punjab: { crops: ["Wheat", "Cotton"], pesticides: ["Glyphosate", "Carbendazim"] },
-//     Gujarat: { crops: ["Groundnut", "Bajra"], pesticides: ["Chlorpyrifos", "Sulphur Dust"] },
-//     Maharashtra: { crops: ["Sugarcane", "Soybean"], pesticides: ["Atrazine", "Quinalphos"] },
-//     Default: { crops: ["Rice", "Wheat"], pesticides: ["General pesticide use recommended"] }
-// };
+// 3️⃣ Sample Crop & Pesticide Data
+const regionData = {
+    Bihar: { crops: ["Rice", "Maize"], pesticides: ["Imidacloprid", "Chlorpyrifos"] },
+    Punjab: { crops: ["Wheat", "Cotton"], pesticides: ["Glyphosate", "Carbendazim"] },
+    Gujarat: { crops: ["Groundnut", "Bajra"], pesticides: ["Chlorpyrifos", "Sulphur Dust"] },
+    Maharashtra: { crops: ["Sugarcane", "Soybean"], pesticides: ["Atrazine", "Quinalphos"] },
+    Default: { crops: ["Rice", "Wheat"], pesticides: ["General pesticide use recommended"] }
+};
 
-// // 4️⃣ Suggestion Function
-// function suggestCrops(lat, lng) {
-//     const states = Object.keys(regionData).filter(s => s !== "Default");
-//     const state = states[Math.floor(Math.random() * states.length)];
-//     const info = regionData[state];
+// 4️⃣ Suggestion Function
+function suggestCrops(lat, lng) {
+    const states = Object.keys(regionData).filter(s => s !== "Default");
+    const state = states[Math.floor(Math.random() * states.length)];
+    const info = regionData[state];
 
-//     return `<b>📍 Location:</b> ${lat}, ${lng}<br>
-//             <b>State:</b> ${state}<br>
-//             <b>🌱 Best Crops:</b> ${info.crops.join(", ")}<br>
-//             <b>🛡 Recommended Pesticides:</b> ${info.pesticides.join(", ")}`;
-// }
+    return `<b>📍 Location:</b> ${lat}, ${lng}<br>
+            <b>State:</b> ${state}<br>
+            <b>🌱 Best Crops:</b> ${info.crops.join(", ")}<br>
+            <b>🛡 Recommended Pesticides:</b> ${info.pesticides.join(", ")}`;
+}
 
-// // 5️⃣ Map Click Event
-// map.on('click', function(e) {
-//     const lat = e.latlng.lat.toFixed(2);
-//     const lng = e.latlng.lng.toFixed(2);
-//     L.popup()
-//      .setLatLng(e.latlng)
-//      .setContent(suggestCrops(lat, lng))
-//      .openOn(map);
-// });
+// 5️⃣ Map Click Event
+map.on('click', function(e) {
+    const lat = e.latlng.lat.toFixed(2);
+    const lng = e.latlng.lng.toFixed(2);
+    L.popup()
+     .setLatLng(e.latlng)
+     .setContent(suggestCrops(lat, lng))
+     .openOn(map);
+});
 const apiKey = "a477bee21687ef6b13102d737cf62ac7"; // Teri API key
 
 document.getElementById("check-btn").addEventListener("click", getWeather);

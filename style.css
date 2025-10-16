@@ -1189,7 +1189,9 @@ nav ul{
     border-radius: 15px;
     /* box-shadow: 0 10px 25px rgba(0,0,0,0.3); */
     padding: 30px;
-    width: 800px;
+    width: 85%;
+    max-width: 1000px;
+    height: auto;
     margin-top: 2rem;
     flex-direction: column;
     text-align: center;
