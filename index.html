@@ -6,6 +6,8 @@
     <title>PestiCare-Smart Farming, Safe Crops</title>
     <link rel="stylesheet" href="style.css">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+     <link rel="stylesheet" href="map.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
     
 </head>
 <body>
@@ -22,8 +24,8 @@
              <a class="anchor-sub" href="#Safety-tips"><ul>Safety Tips</ul></a>
              <a class="anchor-sub" href="#About"><ul>About</ul></a>
              <a  class="anchor-sub"href="#contact"><ul>Contact</ul></a>
-              <a  class="anchor-sub" onclick="pestMapOpen()"  href="#pesticare-map"><ul>PestMap</ul></a>
-             <a  class="anchor-sub" onclick="openWeather()" href="#weather"><ul>Check Weather</ul></a>
+              <a  class="anchor-sub" onclick="pestMapOpen()"  href="#pesticare-map-popup"><ul>PestMap</ul></a>
+             <a  class="anchor-sub" onclick="openWeather()" href="#pesticare-weather-popup"><ul>Check Weather</ul></a>
              <p id="log-btn" onclick="showLoginSignup()"><i class="fa-solid fa-right-to-bracket"></i></p>
              
                  </div>
@@ -310,30 +312,6 @@ This project aims to spread awareness and introduce AI-based solutions to monito
     </form>
   </div>
 </section>
-<!-- maapppssss -->
-<section id="pesticare-map">
-  <span class="close-btn" onclick="closeMap()">&times;</span>
-  <h2>🌾 Pesticare Crop & Pesticide Map</h2>
-  <div id="map-container"></div>
-
-  <!-- Leaflet CSS -->
-   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" /> 
-  <!-- Leaflet JS -->
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script> 
-  <!-- Our JS -->
- <script src="script.js"></script>
-</section>
-<div class="weather-card" id="weather-box" >
-  <span class="close-btn" onclick="closeWeather()">&times;</span>
-    <h2>🌤️ Pesticare Weather</h2>
-    <div class="weather-input">
-        <input type="text" id="city-input" placeholder="Enter city name">
-        <button id="check-btn">Check</button>
-    </div>
-    <div class="weather-info" id="weather-result">
-        <!-- Weather details will appear here -->
-    </div>
-</div>
 
 <!-- === Find Pesticides Modal === -->
 <div class="pc-modal-wrapper" id="pc-modal-wrapper">
@@ -389,7 +367,36 @@ This project aims to spread awareness and introduce AI-based solutions to monito
 </div>
 <!-- Button to open modal
 <button id="pc-open-btn">Find Pesticides</button> -->
-    
+     <!-- <div id="map-container"></div>
+
+   Popup Box 
+  <div id="info-popup" class="hidden">
+    <span id="close-popup" onclick="closePopup()">&times;</span>
+    <h2 id="location-name">Location</h2>
+    <p><strong>Soil Type:</strong> <span id="soil-type"></span></p>
+    <p><strong>Suitable Crops:</strong> <span id="crops"></span></p>
+    <p><strong>Recommended Pesticides:</strong> <span id="pesticides"></span></p>
+  </div>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="map.js"></script> -->
+<!-- Map Container (hidden initially) -->
+<div id="pesticare-map-popup" class="pesticare-popup hidden">
+  <span class="pesticare-close" onclick="pestMapClose()">&times;</span>
+  <h2>PestiCare Map</h2>
+  <div id="pesticare-map-container"></div>
+</div>
+
+<!-- Weather Popup -->
+<div id="pesticare-weather-popup" class="pesticare-weather-popup hidden">
+  <span class="pesticare-weather-close" onclick="closeWeather()">&times;</span>
+  <h2 id="pesticare-weather-location">Weather Info</h2>
+  <p><strong>Temperature:</strong> <span id="pesticare-weather-temp">--</span> °C</p>
+  <p><strong>Condition:</strong> <span id="pesticare-weather-cond">--</span></p>
+  <p><strong>Humidity:</strong> <span id="pesticare-weather-humidity">--</span> %</p>
+  <input type="text" id="pesticare-weather-input" placeholder="Enter city name" />
+  <button onclick="fetchWeather()">Check Weather</button>
+</div>
 <!-- </div> -->
   <!-- Chatbot icon -->
   <p Ask Avni ><div id="chatbot-icon" onclick="toggleChatbot()">💬</div></p>

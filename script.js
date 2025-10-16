@@ -1,3 +1,7 @@
+if (window.innerWidth < 1024) {
+  window.location.href = "mobile-warning.html";
+}
+
 // js for login signup
 function showLogin(){
     document.querySelector(".innerContainer2").classList.add("active");
@@ -369,91 +373,116 @@ function closeWeather(){
   document.getElementById("weather-box").style.display = 'none';
 }
 
-//pest map
- function pestMapOpen(){
-  document.getElementById("pesticare-map").style.display = 'flex';
- }
- function closeMap(){
-document.getElementById("pesticare-map").style.display = 'none';
- }
+// //pest map
+//  function pestMapOpen(){
+//   document.getElementById("pesticare-map").style.display = 'flex';
+//  }
+//  function closeMap(){
+// document.getElementById("pesticare-map").style.display = 'none';
+//  }
 
-// for maps
-// 1️⃣ Map Initialization
-const map = L.map('map-container').setView([25.6, 85.1], 6);
+let pestMap; // global map variable
+let mapInitialized = false;
 
-// 2️⃣ Tile Layer
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 18,
-    attribution: '&copy; OpenStreetMap contributors'
-}).addTo(map);
+function pestMapOpen() {
+  const popup = document.getElementById('pesticare-map-popup');
+  popup.classList.remove('hidden');
 
-// 3️⃣ Sample Crop & Pesticide Data
-const regionData = {
-    Bihar: { crops: ["Rice", "Maize"], pesticides: ["Imidacloprid", "Chlorpyrifos"] },
-    Punjab: { crops: ["Wheat", "Cotton"], pesticides: ["Glyphosate", "Carbendazim"] },
-    Gujarat: { crops: ["Groundnut", "Bajra"], pesticides: ["Chlorpyrifos", "Sulphur Dust"] },
-    Maharashtra: { crops: ["Sugarcane", "Soybean"], pesticides: ["Atrazine", "Quinalphos"] },
-    Default: { crops: ["Rice", "Wheat"], pesticides: ["General pesticide use recommended"] }
-};
+  // Initialize map only once after popup is visible
+  setTimeout(() => {
+    if (!mapInitialized) {
+      pestMap = L.map('pesticare-map-container').setView([20.5937, 78.9629], 5);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+      }).addTo(pestMap);
 
-// 4️⃣ Suggestion Function
-function suggestCrops(lat, lng) {
-    const states = Object.keys(regionData).filter(s => s !== "Default");
-    const state = states[Math.floor(Math.random() * states.length)];
-    const info = regionData[state];
-
-    return `<b>📍 Location:</b> ${lat}, ${lng}<br>
-            <b>State:</b> ${state}<br>
-            <b>🌱 Best Crops:</b> ${info.crops.join(", ")}<br>
-            <b>🛡 Recommended Pesticides:</b> ${info.pesticides.join(", ")}`;
-}
-
-// 5️⃣ Map Click Event
-map.on('click', function(e) {
-    const lat = e.latlng.lat.toFixed(2);
-    const lng = e.latlng.lng.toFixed(2);
-    L.popup()
-     .setLatLng(e.latlng)
-     .setContent(suggestCrops(lat, lng))
-     .openOn(map);
-});
-const apiKey = "a477bee21687ef6b13102d737cf62ac7"; // Teri API key
-
-document.getElementById("check-btn").addEventListener("click", getWeather);
-
-async function getWeather() {
-    const city = document.getElementById("city-input").value;
-    if(!city) return alert("Please enter a city");
-
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-
-    try {
-        const res = await fetch(url);
-        const data = await res.json();
-
-        if(data.cod !== 200){
-            document.getElementById("weather-result").innerHTML = "<p>City not found!</p>";
-            return;
-        }
-
-        const iconUrl = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
-
-        const output = `
-            <img src="${iconUrl}" alt="${data.weather[0].description}" />
-            <p><b>City:</b> ${data.name}</p>
-            <p><b>Temperature:</b> ${data.main.temp} °C</p>
-            <p><b>Condition:</b> ${data.weather[0].main}</p>
-            <p><b>Humidity:</b> ${data.main.humidity}%</p>
-            <p><b>Wind:</b> ${data.wind.speed} m/s</p>
-        `;
-
-        document.getElementById("weather-result").innerHTML = output;
-
-    } catch(err){
-        console.log(err);
-        document.getElementById("weather-result").innerHTML = "<p>Error fetching weather</p>";
+      mapInitialized = true;
+    } else {
+      // If already initialized, trigger resize
+      pestMap.invalidateSize();
     }
+  }, 100); // 100ms delay ensures popup is visible
 }
+
+function pestMapClose() {
+  const popup = document.getElementById('pesticare-map-popup');
+  popup.classList.add('hidden');
+}
+
+// Open popup
+function openWeather() {
+  document.getElementById('pesticare-weather-popup').classList.remove('hidden');
+}
+
+// Close popup
+function closeWeather() {
+  document.getElementById('pesticare-weather-popup').classList.add('hidden');
+}
+
+// Fetch weather function (error-free version)
+function fetchWeather() {
+  const city = document.getElementById('pesticare-weather-input').value;
+  if (!city) {
+    alert("Please enter a city name!");
+    return;
+  }
+
+  const apiKey = "a477bee21687ef6b13102d737cf62ac7"; // <-- apna key yaha daale
+  const url = "https://api.openweathermap.org/data/2.5/weather?q=" 
+              + encodeURIComponent(city) + "&units=metric&appid=" + apiKey;
+
+  fetch(url)
+    .then(response => {
+      if (!response.ok) throw new Error("City not found");
+      return response.json();
+    })
+    .then(data => {
+      document.getElementById('pesticare-weather-location').innerText = data.name;
+      document.getElementById('pesticare-weather-temp').innerText = data.main.temp;
+      document.getElementById('pesticare-weather-cond').innerText = data.weather[0].description;
+      document.getElementById('pesticare-weather-humidity').innerText = data.main.humidity;
+    })
+    .catch(err => {
+      alert("Error: " + err.message);
+    });
+}
+// const apiKey = "a477bee21687ef6b13102d737cf62ac7"; // Teri API key
+
+// document.getElementById("check-btn").addEventListener("click", getWeather);
+
+// async function getWeather() {
+//     const city = document.getElementById("city-input").value;
+//     if(!city) return alert("Please enter a city");
+
+//     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+//     try {
+//         const res = await fetch(url);
+//         const data = await res.json();
+
+//         if(data.cod !== 200){
+//             document.getElementById("weather-result").innerHTML = "<p>City not found!</p>";
+//             return;
+//         }
+
+//         const iconUrl = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+
+//         const output = `
+//             <img src="${iconUrl}" alt="${data.weather[0].description}" />
+//             <p><b>City:</b> ${data.name}</p>
+//             <p><b>Temperature:</b> ${data.main.temp} °C</p>
+//             <p><b>Condition:</b> ${data.weather[0].main}</p>
+//             <p><b>Humidity:</b> ${data.main.humidity}%</p>
+//             <p><b>Wind:</b> ${data.wind.speed} m/s</p>
+//         `;
+
+//         document.getElementById("weather-result").innerHTML = output;
+
+//     } catch(err){
+//         console.log(err);
+//         document.getElementById("weather-result").innerHTML = "<p>Error fetching weather</p>";
+//     }
+// }
 // find pesticide page
 // Modal elements
 function openPcModal(){

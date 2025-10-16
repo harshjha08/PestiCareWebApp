@@ -1175,71 +1175,6 @@ nav ul{
   color: #56ab2f;
 }
 
-/* mapps section */
-/* Map Section */
-#pesticare-map {
-    padding: 50px 20px;
-    background: #e8f5e9; 
-    display: none;
-    position: fixed;        /* Screen ke upar fix kar diya */
-    top: 50%;               /* Vertically center */
-    left: 50%;              /* Horizontally center */
-    transform: translate(-50%, -50%); /* Exact center me laye */
-    background: rgba(255,255,255,0.95);
-    border-radius: 15px;
-    /* box-shadow: 0 10px 25px rgba(0,0,0,0.3); */
-    padding: 30px;
-    width: 85%;
-    max-width: 1000px;
-    height: auto;
-    margin-top: 2rem;
-    flex-direction: column;
-    text-align: center;
-    z-index: 1000;          /* Sabke upar show ho */
-    display: none;          /* By default hidden */
-}
-
- #pesticare-map h2 {
-    text-align: center;
-    color: #2e7d32;
-    margin-bottom: 25px;
-}
-#map-container {
-    height: 500px;
-    width: 100%;
-    max-width: 1000px;
-    margin: auto;
-    border-radius: 12px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
-}
- /* Weather popup modal style */
-.weather-card {
-    position: fixed;        /* Screen ke upar fix kar diya */
-    top: 50%;               /* Vertically center */
-    left: 50%;              /* Horizontally center */
-    transform: translate(-50%, -50%); /* Exact center me laye */
-    background: rgba(255,255,255,0.95);
-    border-radius: 15px;
-    /* box-shadow: 0 10px 25px rgba(0,0,0,0.3); */
-    padding: 30px;
-    width: 600px;
-    flex-direction: column;
-    text-align: center;
-    z-index: 1000;          /* Sabke upar show ho */
-    display: none;          /* By default hidden */
-}
-#city-input{
-  margin-left: 2rem;
-}
-input::placeholder{
-  color: green;
-}
-
-/* Show class jab btn click kare */
-.weather-card.show {
-    display: flex;          /* Flex ya block dono chal jayega */
-    flex-direction: column;
-}
 
 /* Optional: backdrop effect */
 .weather-card::before {
@@ -1318,4 +1253,99 @@ input::placeholder{
     background: #2e7d32;
     color: white;
     cursor: pointer;
+}
+
+
+/* Popup basic styling */
+.pesticare-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 800px;
+  height: 80%;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+  z-index: 10000;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Hidden state */
+.hidden {
+  display: none;
+}
+
+/* Close button */
+.pesticare-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Map container inside popup */
+#pesticare-map-container {
+  flex: 1;
+  margin-top: 40px; /* leave space for close button */
+  border-radius: 8px;
+  overflow: hidden;
+}
+/* Weather Popup Styling */
+.pesticare-weather-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 350px;
+  max-width: 90%;
+  background: #f0f8ff;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+  z-index: 10000;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pesticare-weather-popup.hidden {
+  display: none;
+}
+
+.pesticare-weather-close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 26px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#pesticare-weather-input {
+  width: 80%;
+  padding: 6px 10px;
+  margin-top: 10px;
+  border-radius: 6px;
+  border: 1px solid #aaa;
+}
+
+.pesticare-weather-popup button {
+  margin-top: 10px;
+  padding: 6px 12px;
+  border: none;
+  background-color: #4caf50;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.pesticare-weather-popup button:hover {
+  background-color: #45a049;
 }
