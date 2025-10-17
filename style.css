@@ -536,13 +536,15 @@ nav ul{
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(90deg, #71210d, #62cc5a);
-    color: #fdfdfd;
+    background: linear-gradient(90deg, #ef9882de, #cee0cc);
+    color: #2e1b1c;
     border-radius: 8px;
-    width: 20%;
+    height: 60%;
+    width: 40%;
 }
 #btn-main-home:hover{
-     background: linear-gradient(90deg, #62cc5a,#71210d);
+    
+     cursor: not-allowed;
 }
 .tagline-hero{
     font-size: xx-large;
@@ -621,7 +623,7 @@ nav ul{
     background: linear-gradient(to bottom right, #43cea2, #185a9d);
 }
 #About{
-  height: max-content;
+  height: 100vh;
     background: linear-gradient(to top right, #43cea2, #185a9d);
 }
 #contact{
@@ -1348,4 +1350,137 @@ nav ul{
 }
 .pesticare-weather-popup button:hover {
   background-color: #45a049;
+}
+
+/* sidebar css */
+#side-bar-id{
+  margin-top: 6rem;
+  position: fixed;
+  z-index: 1000;
+  background: linear-gradient(45deg, Red, blue);
+  height: 80vh;
+  width: 40px;
+  padding-top: 5px;
+  overflow-x: hidden;
+  top: 0;
+  left: 0;
+  transition: width 0.3s ease;
+  border-bottom-right-radius: 15px;
+  border-top-right-radius: 15px;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+#side-bar-id.active{
+  width: 200px;
+}
+.sidebar-head-div{
+  text-align: center;
+  padding: 10px 0;
+  border-bottom: 1px solid#333;
+}
+.sidebar-head-div img{
+width: 30px;
+height: 30px;
+border-radius: 50%;
+}
+
+.sidebar-head-div h3 {
+  font-size: 16px;
+  margin-top: 5px;
+  display: none;
+}
+.sidebar-head-div h3.active{
+  display: flex;
+}
+#side-bar-id.active .sidebar-head h3{
+  display: block;
+}
+.items-of-sidebar {
+  margin-top: 20px;
+
+}
+.items-of-sidebar p {
+  margin: 0;
+  color: white;
+  font-family: sans-serif;
+  padding: 12px 10px;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: background 0.2s;
+}
+.items-of-sidebar p:hover{
+  background-color: #9fc29f;
+  color: #1E88E5;
+
+}
+.items-of-sidebar span{
+  margin-left: 10px;
+  display: none;
+}
+#side-bar-id.active .items-of-sidebar span {
+  display: inline;
+
+}
+.content-shift {
+  margin-left: 200px;
+  transition: margin-left 0.3s ease;
+}
+.side-bar-class .toggle-sidebar-btn {
+  /* display: none; */
+  /* margin-left: 20px; */
+  padding: 20px;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+}
+#toggle-2-bar-btn{
+  font-size: xx-large;
+}
+.side-bar-class .toggle-sidebar-btn span{
+  display: none;
+  margin-left: 20px;
+}
+.side-bar-class .expanded.toggle-sidebar-btn span{
+display: inline;
+}
+.phBox-modal {
+  display: none;
+  position: fixed;
+  z-index: 99999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(3px);
+  justify-content: center;
+  align-items: center;
+
+}
+.phBox-content{
+  background: #ffff;
+  padding: 25px;
+  border-radius: 15px;
+  width: 350px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 6px 25px rgba(0, 0 ,0 ,0.35);
+  animation: phBoxFade 0.3s ease-in-out;
+}
+@keyFrames phBoxFade {
+  from {
+    transform: scale(1); opacity: 1;
+  }
+  to {
+    transform: scale(1); opacity: 1;
+  }
+}
+#phBoxSlider, #phBoxInput {
+  width: 80%;
+  margin: 10px 0;
+}
+.phBox-content button {
+  background: linear-gradient(90deg,#4CAF50, #45a049);
 }

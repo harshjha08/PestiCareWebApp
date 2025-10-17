@@ -1,7 +1,7 @@
 if (window.innerWidth < 1024) {
   window.location.href = "mobile-warning.html";
 }
-
+// this part contains login sighup javascripts code 
 // js for login signup
 function showLogin(){
     document.querySelector(".innerContainer2").classList.add("active");
@@ -44,7 +44,7 @@ function toggleChatbot() {
   } else {
     chatbot.style.display = "flex";
     chatbox.innerHTML = "";
-    botMessageWithOptions("Namaste! Kissan👋 I'm your eco friendly chatbot. How may I help you?", [
+    botMessageWithOptions("Namaste! Kissan👋 I'm Zyra your eco friendly chatbot. How may I help you?", [
       "About Pesticides",
       "Uses And Benefits",
       "Crop Info",
@@ -52,7 +52,7 @@ function toggleChatbot() {
       "Weather and field Guide",
       "General FAQs/Extra Tips",
       "Contact",
-      "About Avni",
+      "About Zyra",
     ]);
   }
 }
@@ -168,7 +168,7 @@ case "Recommended pesticides for wheat rust?":
       break;
 
        case "Weather and field Guide":
-      botMessageWithOptions("choose:" , ["Why is weather important for pesticide spraying?", "How can farmers check real time weather?", "Why use map guidance on PestCare?"]);
+      botMessageWithOptions("choose:" , ["Why is weather important for pesticide spraying?","Suggest Acording PH", "How can farmers check real time weather?", "Why use map guidance on PestCare?"]);
       break;
     case "Why is weather important for pesticide spraying?":
       botMessage("Temperature, Humidity,and wind affect pesticide performance. Ideal spraying time is early morning or evening in calm weather");
@@ -179,6 +179,18 @@ case "Recommended pesticides for wheat rust?":
       case "Why use map guidance on PestCare?":
       botMessage("Using this feture farmer will be able to understand geographical history of land and Our AI will svan the surface and it will suggest Crops and pesticide acordingly.");
       break;
+      case "Suggest Crops Acording to Soil PH":
+      botMessageWithOptions("Enter PH Value of you field or Soil to know details:",["Less than 6","Between 6 to 7.5", "greater than 7.5"]);
+      break;
+      case "Less than 6":
+        botMessage("Soil Is Acidic in Nature you are advised to grow crops like Potato, Pineaplle, Tea Etc.");
+        break;
+        case "Between 6 to 7.5":
+        botMessage("Soil Is Neutral in Nature you are advised to grow crops like Wheat, Rice, Sugarcane.");
+        break;
+        case "greater than 7.5":
+        botMessage("Soil Is Alkaline in Nature you are advised to grow crops Cotton, Barley, Spinach Etc.");
+        break;
       
 
 
@@ -203,8 +215,8 @@ case "Recommended pesticides for wheat rust?":
      case "Contact":
        botMessage("You can contact us 24/7 -📞 +91 9876543210<br>📧 info@example.com or our office- 143, karol bagh Sharda market, Gali no.54, New Delhi");
        break;
-     case "About Avni":
-       botMessage(" I'm Avni AI based Chatbot Model , here for assist you to grow healthy crops. I am developed By Harsh Jha. You can Contact him via -- Instagram:_harshjha_08 Or E-mail at : hjha1289@gmail.com.");
+     case "About Zyra":
+       botMessage(" I'm Zyra AI based Chatbot Model the meaning of my Name Is Blooming,Fresh,Unique and catchy, here for assist you to grow healthy crops. I am developed By Harsh Jha. You can Contact him via -- Instagram:_harshjha_08 Or E-mail at : hjha1289@gmail.com.");
        break;
        botMessage("You can contact us 24/7 -📞 +91 9876543210<br>📧 info@example.com or our office- 143, karol bagh Sharda market, Gali no.54, New Delhi");
        break;
@@ -237,12 +249,12 @@ function handleKeywordResponse(msg) {
   }else if (msg.includes("harsh jha") || msg.includes("harsh") || msg.includes("who developed you")) {
     botMessage(" Name:Harsh Jha from India, passionate about tech world working on different web development projects, Skilled in C, C++, Java, Javascript, etc. Social Media: 1- Instagrame 2- LinkedIn 3-Facebook 4-Github");
   }
-   else if (msg.includes("who") || (msg.includes("who are you") || msg.includes("who made you")|| msg.includes("who developed You") || msg.includes("avni")  || msg.includes("who is Avni") || msg.includes("what you do"))) {
-    botMessage(" I'm Avni AI based Chatbot Model , here for assist you to grow healthy crops. I am developed By Harsh Jha. You can Contact him via -- Instagram:_harshjha_08 Or E-mail at : hjha1289@gmail.com.I am ai based model to prevent use of pesticide how to use ,how much to use everything you can ask from me");
+   else if (msg.includes("who") || (msg.includes("who are you") || msg.includes("who made you")|| msg.includes("who developed You") || msg.includes("zyra")  || msg.includes("who is zyra") || msg.includes("what you do"))) {
+    botMessage(" I'm Zyra, Blooming,fresh,unique and catchy AI based Chatbot Model , here for assist you to grow healthy crops. I am developed By Harsh Jha. You can Contact him via -- Instagram:_harshjha_08 Or E-mail at : hjha1289@gmail.com.I am ai based model to prevent use of pesticide how to use ,how much to use everything you can ask from me");
   } else if (msg.includes("Safety") || msg.includes(" use pesticide")) {
     botMessage("Please read all the safety tips which will be provided at back of the bottle label or ");
   } else if (msg.includes("contact") || msg.includes("email")) {
-    botMessage("You can contact us 24/7 -📞 +91 9876543210<br>📧 info@example.com or our office- 143, karol bagh Sharda market, Gali no.54, New Delhi ");
+    botMessage("You can contact us 24/7 -📞 +91 9876000210📧 dummy@gmail.com or our office- 143, karol bagh Sharda market, Gali no.54, New Delhi ");
   }else if (msg.includes("hi") || msg.includes("Hello") || msg.includes("Hey") || msg.includes("namaste")) {
     botMessageWithOptions("Hello ! User, Greetings I hope you are doing well. how may i assist you Today.",[
       "About Pesticides",
@@ -252,7 +264,7 @@ function handleKeywordResponse(msg) {
       "Weather and field Guide",
       "General FAQs/Extra Tips",
       "Contact",
-      "About Avni",
+      "About Zyra",
     ]);
     
   } else if (msg.includes("soil") || msg.includes(" overuse")) {
@@ -324,12 +336,12 @@ window.addEventListener("scroll", () => {
   });
 });
 // section 5 contact page
- let userName = document.getElementById("contact-name");
-const contactForm = document.querySelector(".contact-form");
-
+ var contacUserName = document.getElementById("contact-name").value;
+ const contactForm = document.querySelector(".contact-form");
+//  contacUserName = document.getElementById
 contactForm.addEventListener("submit", function(e){
   e.preventDefault(); // prevent actual submit
-  alert("Thanks for contacting! We'll get back to you soon.");
+  alert("hi" + contacUserName + "Thanks for contacting! We'll get back to you soon.");
   contactForm.reset();
 });
 // crop details close functions
@@ -446,43 +458,9 @@ function fetchWeather() {
       alert("Error: " + err.message);
     });
 }
-// const apiKey = "a477bee21687ef6b13102d737cf62ac7"; // Teri API key
 
-// document.getElementById("check-btn").addEventListener("click", getWeather);
 
-// async function getWeather() {
-//     const city = document.getElementById("city-input").value;
-//     if(!city) return alert("Please enter a city");
 
-//     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-
-//     try {
-//         const res = await fetch(url);
-//         const data = await res.json();
-
-//         if(data.cod !== 200){
-//             document.getElementById("weather-result").innerHTML = "<p>City not found!</p>";
-//             return;
-//         }
-
-//         const iconUrl = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
-
-//         const output = `
-//             <img src="${iconUrl}" alt="${data.weather[0].description}" />
-//             <p><b>City:</b> ${data.name}</p>
-//             <p><b>Temperature:</b> ${data.main.temp} °C</p>
-//             <p><b>Condition:</b> ${data.weather[0].main}</p>
-//             <p><b>Humidity:</b> ${data.main.humidity}%</p>
-//             <p><b>Wind:</b> ${data.wind.speed} m/s</p>
-//         `;
-
-//         document.getElementById("weather-result").innerHTML = output;
-
-//     } catch(err){
-//         console.log(err);
-//         document.getElementById("weather-result").innerHTML = "<p>Error fetching weather</p>";
-//     }
-// }
 // find pesticide page
 // Modal elements
 function openPcModal(){
@@ -493,46 +471,86 @@ function closePcModal(){
 }
 
 // ====== DATA ======
-// const pesticides = [
-//   { name: "Imidacloprid", use: "Aphids, whiteflies, termites", link: "https://www.amazon.in/s?k=Imidacloprid" },
-//   { name: "Chlorpyrifos", use: "Soil pests, termites, borers", link: "https://www.amazon.in/s?k=Chlorpyrifos" },
-//   { name: "Cypermethrin", use: "Mosquitoes, flies, moths", link: "https://www.amazon.in/s?k=Cypermethrin" },
-//   { name: "Mancozeb", use: "Fungal diseases", link: "https://www.amazon.in/s?k=Mancozeb" },
-//   { name: "Carbendazim", use: "Seed treatment, fungal control", link: "https://www.amazon.in/s?k=Carbendazim" },
-//   { name: "Glyphosate", use: "Weed killer (non-selective herbicide)", link: "https://www.amazon.in/s?k=Glyphosate" },
-//   { name: "Urea", use: "Nitrogen fertilizer", link: "https://www.amazon.in/s?k=Urea+fertilizer" },
-//   { name: "DAP", use: "Phosphorus fertilizer", link: "https://www.amazon.in/s?k=DAP+fertilizer" },
-//   { name: "Potash", use: "Increases yield and quality", link: "https://www.amazon.in/s?k=Potash+fertilizer" },
-// ];
+const pesticides = [
+  { name: "Imidacloprid", use: "Aphids, whiteflies, termites", link: "https://www.amazon.in/s?k=Imidacloprid" },
+  { name: "Chlorpyrifos", use: "Soil pests, termites, borers", link: "https://www.amazon.in/s?k=Chlorpyrifos" },
+  { name: "Cypermethrin", use: "Mosquitoes, flies, moths", link: "https://www.amazon.in/s?k=Cypermethrin" },
+  { name: "Mancozeb", use: "Fungal diseases", link: "https://www.amazon.in/s?k=Mancozeb" },
+  { name: "Carbendazim", use: "Seed treatment, fungal control", link: "https://www.amazon.in/s?k=Carbendazim" },
+  { name: "Glyphosate", use: "Weed killer (non-selective herbicide)", link: "https://www.amazon.in/s?k=Glyphosate" },
+  { name: "Urea", use: "Nitrogen fertilizer", link: "https://www.amazon.in/s?k=Urea+fertilizer" },
+  { name: "DAP", use: "Phosphorus fertilizer", link: "https://www.amazon.in/s?k=DAP+fertilizer" },
+  { name: "Potash", use: "Increases yield and quality", link: "https://www.amazon.in/s?k=Potash+fertilizer" },
+];
 
-// // ====== SEARCH FUNCTION ======
-// const searchInput = document.getElementById("pesticide-search");
-// const resultsContainer = document.getElementById("pesticide-results");
+// ====== SEARCH FUNCTION ======
+const searchInput = document.getElementById("pesticide-search");
+const resultsContainer = document.getElementById("pesticide-results");
 
-// function showPesticides(list) {
-//   resultsContainer.innerHTML = "";
-//   if (list.length === 0) {
-//     resultsContainer.innerHTML = "<p>No results found 😕</p>";
-//     return;
-//   }
+function showPesticides(list) {
+  resultsContainer.innerHTML = "";
+  if (list.length === 0) {
+    resultsContainer.innerHTML = "<p>No results found 😕</p>";
+    return;
+  }
 
-//   list.forEach(p => {
-//     const card = document.createElement("div");
-//     card.classList.add("pesticide-card");
-//     card.innerHTML = `
-//       <h3>${p.name}</h3>
-//       <p><strong>Use:</strong> ${p.use}</p>
-//       <a href="${p.link}" target="_blank">🔗 Buy / Learn More</a>
-//     `;
-//     resultsContainer.appendChild(card);
-//   });
-// }
+  list.forEach(p => {
+    const card = document.createElement("div");
+    card.classList.add("pesticide-card");
+    card.innerHTML = `
+      <h3>${p.name}</h3>
+      <p><strong>Use:</strong> ${p.use}</p>
+      <a href="${p.link}" target="_blank">🔗 Buy / Learn More</a>
+    `;
+    resultsContainer.appendChild(card);
+  });
+}
 
-// searchInput.addEventListener("input", () => {
-//   const query = searchInput.value.toLowerCase();
-//   const filtered = pesticides.filter(p => p.name.toLowerCase().includes(query));
-//   showPesticides(filtered);
-// });
+searchInput.addEventListener("input", () => {
+  const query = searchInput.value.toLowerCase();
+  const filtered = pesticides.filter(p => p.name.toLowerCase().includes(query));
+  showPesticides(filtered);
+});
 
-// // On load (show all)
-// showPesticides(pesticides);
+// On load (show all)
+showPesticides(pesticides);
+//sidebar 
+document.addEventListener("DOMContentLoaded", function (){
+const sidebar = document.getElementById("side-bar-id");
+const toggleBarBtn = document.getElementById("toggle-2-bar-btn");
+// const sideBarContent = document.getElementById("")
+toggleBarBtn.addEventListener('click', function () {
+    sidebar.classList.toggle('active');
+});
+});
+
+// ph box
+function openPhBox(){
+  document.getElementById("phBoxModal").style.display ="flex";
+}
+function closePhBox(){
+  document.getElementById("phBoxModal").style.display ="none";
+}
+function phBoxSyncInput(val){
+  document.getElementById("phBoxInput").value = val;
+}
+function phBoxSyncSlider(val){
+  document.getElementById("phBoxSlider").value = val;
+}
+function phBoxSuggest(){
+  const ph = 
+  parseFloat(document.getElementById("phBoxInput").value);
+  const output =
+  document.getElementById("phBoxResult");
+  let suggestion = "";
+  if(ph<5.5){
+    suggestion = "soil is too acidic<br><b>Best Crops:</b>Potato, Pineapple,sweet potato<br><b>Tip:</b>Add Lime to reduce acidity."
+  } else if (ph>=5.5 && ph<=7.0){
+    suggestion = "Neutral to slightly acidic - perfect for most crops<br><b>Best Crops:</b>Rice, Wheat,tomato,Maize";
+  }else if (ph>7.0 && ph<=8.5){
+    suggestion = "Slightly Alkaline soil.<br><b>Best Crops:</b>Barley, cotton,sugar beet<br><b>Tip :</b> Add organic compost";
+  }else{
+    suggestion = "Highly Alakaline--Unsuitable for most crops <br><b>Tip:</b>Add sulphur or gypsum to balance ph";
+  }
+  output.innerHTML = suggestion;
+}

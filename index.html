@@ -14,6 +14,7 @@
          <section id="Home">
 
             <nav>
+              <div class="toggle-sidebar-btn" id="toggle-2-bar-btn">&#9776;</div>
             <div class="tag-logo">
                 <p id="p-logo"><i class="fa-solid fa-leaf fa-2x" alt="crewai logo" width="60" height="60" color="Green"></i>PestiCare</p>
             </div>
@@ -24,12 +25,55 @@
              <a class="anchor-sub" href="#Safety-tips"><ul>Safety Tips</ul></a>
              <a class="anchor-sub" href="#About"><ul>About</ul></a>
              <a  class="anchor-sub"href="#contact"><ul>Contact</ul></a>
-              <a  class="anchor-sub" onclick="pestMapOpen()"  href="#pesticare-map-popup"><ul>PestMap</ul></a>
-             <a  class="anchor-sub" onclick="openWeather()" href="#pesticare-weather-popup"><ul>Check Weather</ul></a>
              <p id="log-btn" onclick="showLoginSignup()"><i class="fa-solid fa-right-to-bracket"></i></p>
              
                  </div>
         </nav>
+
+        <div class="side-bar-class" id="side-bar-id">
+<div class="sidebar-content-area">
+  <div class="sidebar-head-div">
+    <img src="Gemini_Generated_Image_t03ffyt03ffyt03f.png" height="40px" width="70px" alt="imagediv">
+    <h3>KissanTool</h3>
+  </div>
+  <div class="items-of-sidebar">
+    <p onclick="pestMapOpen()"><i>&#128205;</i><span>KissanMap</span></p>
+    <p onclick="openWeather()"><i>&#9728;<span>KissanWeather</span></p>
+    <p onclick="openPhBox()"><i>&#128300;<span>Soil PH</span></p>
+    <p><i>&#129300;<span>Fertilizer</span></p>
+    <p><i>&#128167;<span>Irrigation</span></p>
+    <p><i>&#128027;<span>Crop Disease</span></p>
+    <p><i>&#127806;<span>Seed</span></p>
+    <p><i>&#129364;<span>Harvest</span></p>
+    <p><i>&#128176;<span>Market price</span></p>
+    <p><i>&#128214;<span>Farming Tips</span></p>
+  </div>
+</div>
+        </div>
+        <script>document.addEventListener("DOMContentLoaded", function (){
+const sidebar = document.getElementById("side-bar-id");
+const toggleBarBtn = document.getElementById("toggle-2-bar-btn");
+// const sideBarContent = document.getElementById("")
+toggleBarBtn.addEventListener('click', function () {
+    sidebar.classList.toggle('active');
+});
+});</script>
+ 
+<div id="phBoxModal"
+class="phBox-modal">
+<div class="phBox-content">
+  <span class="phBox-close"
+  onclick="closePhBox()">&times;</span>
+  <h2>Soil Ph Analyzer</h2>
+  <label for="phBoxSlider">Select ph value:</label>
+  <input type="range" id="phBoxSlider" min="1" max="14" step="0.1" value="7" oninput="phBoxSyncInput(this.value)">
+  <input type="number" id="phBoxIinput" min="1" max="14" step="0.1" value="7" oninput="phBoxSyncSlider(this.value)">
+  <button onclick="phBoxSuggest()">Get Suggestion</button>
+  <div id="phBoxResult"></div>
+</div>
+</div>
+
+    <!-- <script src="script.js"></script> -->
         <div class="main-body-home">
           <!-- hero section Head -->
 <div class="container-box">
@@ -399,7 +443,7 @@ This project aims to spread awareness and introduce AI-based solutions to monito
 </div>
 <!-- </div> -->
   <!-- Chatbot icon -->
-  <p Ask Avni ><div id="chatbot-icon" onclick="toggleChatbot()">💬</div></p>
+  <p Ask Zyra ><div id="chatbot-icon" onclick="toggleChatbot()">&#128103;</div></p>
 
   <!-- Chatbot box -->
   <div id="chatbot">
